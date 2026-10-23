@@ -35,29 +35,31 @@ Este proyecto forma parte de una aplicación global de **Gestión de un Taller d
 El código sigue estrictamente el estándar de organización exigido para la asignatura, separando la capa lógica (**Core**) de la capa de presentación (**View**):
 
 ```text
-TallerCoches/
+Proyecto/
 ├── Core/
 │   ├── Models/
-│   │   ├── Cliente.cs              # Modelo básico de apoyo (simulado para integración)
-│   │   ├── Personal.cs             # Modelo básico de apoyo (simulado para integración)
-│   │   ├── EstadoReparacion.cs     # Enumerado escalable con los estados de la reparación
-│   │   └── Reparacion.cs           # Modelo principal de datos
+|   |   ├── Clases_Apoyo/
+|   |   |   ├── Cliente.cs            # Modelo básico de apoyo (simulado para integración)
+|   |   |   └── Personal.cs           # Modelo básico de apoyo (simulado para integración)  
+|   |   ├── Enum/
+|   |   |   └── EstadoReparacion.cs   # Enumerado escalable con los estados de la reparación 
+│   │   └── Reparacion.cs             # Modelo principal de datos
 │   ├── Persistence/
-│   │   └── XmlRepository.cs        # Lectura y escritura en fichero XML
+│   │   └── XmlRepository.cs          # Lectura y escritura en fichero XML
 │   └── Services/
-│       └── GestorReparaciones.cs   # Servicio principal (CRUD y filtrado dinámico)
+│       └── GestorReparaciones.cs     # Servicio principal (CRUD y filtrado dinámico)
 ├── docs/
-│   └── proyecto-9-taller.html      # Enunciado de la práctica en formato .html
+│   └── proyecto-9-taller.html        # Enunciado de la práctica en formato .html
 ├── View/
-│   ├── App.axaml / App.axaml.cs    # Inicialización y estilos globales de Avalonia UI
-│   ├── ReparacionesView.axaml      # XAML de la ventana principal de lista y filtros
-│   ├── ReparacionesView.axaml.cs   # Code-Behind de la vista principal (exposición de controles)
-│   ├── ReparacionesCtrl.cs         # Controlador de la vista principal (gestión de eventos)
-│   ├── FormReparacion.axaml        # XAML del formulario modal (Alta / Edición)
-│   ├── FormReparacion.axaml.cs     # Code-Behind del formulario
-│   └── FormReparacionCtrl.cs      # Controlador del formulario modal
-├── Program.cs                      # Punto de entrada de la aplicación
-└── TallerCoches.csproj             # Configuración del proyecto y dependencias NuGet
+│   ├── App.axaml / App.axaml.cs      # Inicialización y estilos globales de Avalonia UI
+│   ├── ReparacionesView.axaml        # XAML de la ventana principal de lista y filtros
+│   ├── ReparacionesView.axaml.cs     # Code-Behind de la vista principal (exposición de controles)
+│   ├── ReparacionesCtrl.cs           # Controlador de la vista principal (gestión de eventos)
+│   ├── FormReparacion.axaml          # XAML del formulario modal (Alta / Edición)
+│   ├── FormReparacion.axaml.cs       # Code-Behind del formulario
+│   └── FormReparacionCtrl.cs         # Controlador del formulario modal
+├── Program.cs                        # Punto de entrada de la aplicación
+└── Proyecto.csproj                   # Configuración del proyecto y dependencias NuGet
 ```
 
 ---
