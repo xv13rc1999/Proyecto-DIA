@@ -1,6 +1,6 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        x:Class="TallerCoches.View.ReparacionesView"
+        x:Class="Proyecto.View.ReparacionesView"
         Title="Gestión de Reparaciones - Taller de Coches"
         Width="900" Height="550"
         WindowStartupLocation="CenterScreen">
@@ -10,9 +10,9 @@
         <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="10" Margin="0,0,0,10">
             <TextBlock Text="Filtrar por estado:" VerticalAlignment="Center" FontWeight="Bold"/>
             <ComboBox Name="cbFiltroEstado" Width="150" SelectedIndex="0">
-                <ComboBoxItemContent>Todas</ComboBoxItemContent>
-                <ComboBoxItemContent>Pendientes</ComboBoxItemContent>
-                <ComboBoxItemContent>Terminadas</ComboBoxItemContent>
+                <ComboBoxItem>Todas</ComboBoxItem>
+                <ComboBoxItem>Pendientes</ComboBoxItem>
+                <ComboBoxItem>Terminadas</ComboBoxItem>
             </ComboBox>
         </StackPanel>
 

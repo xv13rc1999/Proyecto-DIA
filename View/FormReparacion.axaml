@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Proyecto.View.FormReparacion"
+        Title="Formulario de Reparación"
+        Width="500" Height="520"
+        WindowStartupLocation="CenterOwner">
+
+    <StackPanel Margin="20" Spacing="10">
+        <TextBlock Text="Asunto / Avería:" FontWeight="Bold"/>
+        <TextBox Name="txtAsunto"/>
+
+        <TextBlock Text="Cliente:" FontWeight="Bold"/>
+        <ComboBox Name="cbCliente" HorizontalAlignment="Stretch"/>
+
+        <TextBlock Text="Mecánico Encargado:" FontWeight="Bold"/>
+        <ComboBox Name="cbTrabajador" HorizontalAlignment="Stretch"/>
+
+        <TextBlock Text="Estado:" FontWeight="Bold"/>
+        <ComboBox Name="cbEstado" HorizontalAlignment="Stretch"/>
+            <ComboBoxItem>Pendiente</ComboBoxItem>
+            <ComboBoxItem>Terminada</ComboBoxItem>
+        </ComboBox>
+
+        <TextBlock Text="Fecha Inicial:" FontWeight="Bold"/>
+        <CalendarDatePicker Name="dpFechaInicial" HorizontalAlignment="Stretch"/>
+
+        <TextBlock Text="Fecha Final:" FontWeight="Bold"/>
+        <CalendarDatePicker Name="dpFechaFinal" HorizontalAlignment="Stretch"/>
+
+        <TextBlock Text="Notas:" FontWeight="Bold"/>
+        <TextBox Name="txtNotas" Height="60" AcceptsReturn="True" TextWrapping="Wrap"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10" Margin="0,10,0,0">
+            <Button Name="btnGuardar" Content="Guardar" Padding="15,5"/>
+            <Button Name="btnCancelar" Content="Cancelar" Padding="15,5"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
