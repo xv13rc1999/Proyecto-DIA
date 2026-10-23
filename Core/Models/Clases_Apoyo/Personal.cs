@@ -1,4 +1,4 @@
-namespace Proyecto.Core.Models;
+namespace Proyecto.Core.Models.Clases_Apoyo;
 
 public class Personal
 {
