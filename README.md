@@ -9,7 +9,7 @@
 ## 📋 Índice
 1. [Descripción del Proyecto](#-descripción-del-proyecto)
 2. [Estructura del Proyecto](#-estructura-del-proyecto)
-3. [Explicación por Componentes](#-explicación-por-componentes)
+3. [Explicación por Componentes](#%EF%B8%8F-explicación-por-componentes)
    - [1. Capa Core (Lógica de Negocio y Persistencia)](#1-capa-core-lógica-de-negocio-dominio-y-persistencia)
    - [2. Capa View (Interfaz de Usuario y Controladores)](#2-capa-view-interfaz-de-usuario-y-controladores)
 4. [Justificación de Decisiones Técnicas ("¿Por qué de esta forma?")](#-justificación-de-decisiones-técnicas)
