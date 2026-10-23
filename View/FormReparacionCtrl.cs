@@ -2,10 +2,10 @@ namespace Proyecto.View;
 
 using System;
 using System.Collections.Generic;
-using Proyecto.Core.Models;
-using Proyecto.Core.Models.Clases_Apoyo;
-using Proyecto.Core.Models.Enum;
 using Avalonia.Controls;
+using Proyecto.Core.Models;
+using Proyecto.Core.Models.Enum;
+using Proyecto.Core.Models.Clases_Apoyo;
 
 public class FormReparacionCtrl
 {
@@ -19,26 +19,18 @@ public class FormReparacionCtrl
         _original = reparacion;
         View = new FormReparacion();
 
-        // Datos de prueba para simular los módulos de Clientes y Personal del proyecto
-        var listaClientes = new List<Cliente>
-        {
-            new("12345678A", "Carlos Sainz", "carlos@gmail.com"),
-            new("87654321B", "Fernando Alonso", "fernando@gmail.com")
-        };
+        // 1. Cargar directamente todos los valores del Enum EstadoReparacion
+        View.CbEstado.ItemsSource = Enum.GetValues<EstadoReparacion>();
 
-        var listaPersonal = new List<Personal>
-        {
-            new("11111111X", "Paco Mecánico", "paco@taller.com", 2),
-            new("22222222Y", "Luis Técnico", "luis@taller.com", 1)
-        };
+        // (Carga de datos auxiliares para clientes y mecánico)
+        View.CbCliente.ItemsSource = obtenerClientes();
+        View.CbTrabajador.ItemsSource = obtenerPersonal();
 
-        View.CbCliente.ItemsSource = listaClientes;
-        View.CbTrabajador.ItemsSource = listaPersonal;
-
+        // 2. Si es edición, seleccionar el estado actual del objeto
         if (_original != null)
         {
             View.TxtAsunto.Text = _original.Asunto;
-            View.CbEstado.SelectedIndex = (int)_original.Estado;
+            View.CbEstado.SelectedItem = _original.Estado; // Asignación directa del Enum
             View.DpFechaInicial.SelectedDate = _original.FechaInicial;
             View.DpFechaFinal.SelectedDate = _original.FechaFinal;
             View.TxtNotas.Text = _original.Notas;
@@ -46,7 +38,7 @@ public class FormReparacionCtrl
         else
         {
             View.DpFechaInicial.SelectedDate = DateTime.Now;
-            View.CbEstado.SelectedIndex = 0;
+            View.CbEstado.SelectedItem = EstadoReparacion.Pendiente; // Valor por defecto
         }
 
         View.BtnGuardar.Click += (_, _) =>
@@ -57,7 +49,10 @@ public class FormReparacionCtrl
                 Asunto = View.TxtAsunto.Text ?? "",
                 Cliente = (Cliente)View.CbCliente.SelectedItem!,
                 TrabajadorEncargado = (Personal)View.CbTrabajador.SelectedItem!,
-                Estado = (EstadoReparacion)View.CbEstado.SelectedIndex,
+                
+                // 3. Obtener el valor seleccionado casateando el SelectedItem al Enum
+                Estado = (EstadoReparacion)View.CbEstado.SelectedItem!,
+                
                 FechaInicial = View.DpFechaInicial.SelectedDate ?? DateTime.Now,
                 FechaFinal = View.DpFechaFinal.SelectedDate,
                 Notas = View.TxtNotas.Text ?? ""
@@ -78,5 +73,27 @@ public class FormReparacionCtrl
     {
         _callback = callback;
         View.Show();
+    }
+
+    // =======================================================
+    // MÉTODOS AUXILIARES (Datos simulados para pruebas)
+    // =======================================================
+
+    private List<Cliente> obtenerClientes()
+    {
+        return new List<Cliente>
+        {
+            new Cliente("12345678A", "Carlos Sainz", "carlos@gmail.com"),
+            new Cliente("87654321B", "Fernando Alonso", "fernando@gmail.com")
+        };
+    }
+
+    private List<Personal> obtenerPersonal()
+    {
+        return new List<Personal>
+        {
+            new Personal("11111111X", "Paco Mecánico", "paco@taller.com", 2),
+            new Personal("22222222Y", "Luis Técnico", "luis@taller.com", 1)
+        };
     }
 }

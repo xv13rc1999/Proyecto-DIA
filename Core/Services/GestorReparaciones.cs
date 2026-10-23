@@ -17,11 +17,24 @@ public class GestorReparaciones
         _reparaciones = _repository.CargarReparaciones();
     }
 
+    // Devuelve todas las reparaciones
     public IEnumerable<Reparacion> Todas => new List<Reparacion>(_reparaciones);
 
-    public IEnumerable<Reparacion> Pendientes => _reparaciones.Where(r => r.Estado == EstadoReparacion.Pendiente);
+    // 1. Filtrado dinámico por cualquier valor del enum EstadoReparacion
+    public IEnumerable<Reparacion> ObtenerPorEstado(EstadoReparacion estado)
+    {
+        return _reparaciones.Where(r => r.Estado == estado);
+    }
 
-    public IEnumerable<Reparacion> Terminadas => _reparaciones.Where(r => r.Estado == EstadoReparacion.Terminada);
+    // 2. Diccionario agrupado automáticamente por todos los estados del enum (escalable)
+    public IDictionary<EstadoReparacion, List<Reparacion>> ObtenerAgrupadasPorEstado()
+    {
+        return Enum.GetValues<EstadoReparacion>()
+                   .ToDictionary(
+                       estado => estado,
+                       estado => _reparaciones.Where(r => r.Estado == estado).ToList()
+                   );
+    }
 
     public void Alta(Reparacion reparacion)
     {

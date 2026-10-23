@@ -16,10 +16,7 @@
         <ComboBox Name="cbTrabajador" HorizontalAlignment="Stretch"/>
 
         <TextBlock Text="Estado:" FontWeight="Bold"/>
-        <ComboBox Name="cbEstado" HorizontalAlignment="Stretch">
-            <ComboBoxItem>Pendiente</ComboBoxItem>
-            <ComboBoxItem>Terminada</ComboBoxItem>
-        </ComboBox>
+        <ComboBox Name="cbEstado" HorizontalAlignment="Stretch"/> <!-- Se va a cargar directamnete el enum de Estado de reparacion en "FormReparacionCtrl.cs"-->
 
         <TextBlock Text="Fecha Inicial:" FontWeight="Bold"/>
         <CalendarDatePicker Name="dpFechaInicial" HorizontalAlignment="Stretch"/>

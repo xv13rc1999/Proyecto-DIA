@@ -2,18 +2,21 @@ namespace Proyecto.View;
 
 using System.Linq;
 using Proyecto.Core.Models;
+using Proyecto.Core.Models.Enum;
 using Proyecto.Core.Services;
 
 public class ReparacionesCtrl
 {
     private readonly GestorReparaciones _gestor;
-
     public ReparacionesView View { get; }
 
     public ReparacionesCtrl()
     {
         _gestor = new GestorReparaciones();
         View = new ReparacionesView();
+
+        // Cargar las opciones del ComboBox dinámicamente con "Todas" + los valores del Enum
+        CargarFiltroEstado();
 
         View.BtnAlta.Click += (_, _) => OnAlta();
         View.BtnModificar.Click += (_, _) => OnModificar();
@@ -24,17 +27,31 @@ public class ReparacionesCtrl
         ActualizarLista();
     }
 
+    private void CargarFiltroEstado()
+    {
+        var opciones = new List<object> { "Todas" };
+        opciones.AddRange(Enum.GetValues<EstadoReparacion>().Cast<object>());
+        
+        View.CbFiltroEstado.ItemsSource = opciones;
+        View.CbFiltroEstado.SelectedIndex = 0;
+    }
+
     private void ActualizarLista()
     {
-        int index = View.CbFiltroEstado.SelectedIndex;
         View.LbReparaciones.ItemsSource = null;
 
-        if (index == 1) // Pendientes
-            View.LbReparaciones.ItemsSource = _gestor.Pendientes;
-        else if (index == 2) // Terminadas
-            View.LbReparaciones.ItemsSource = _gestor.Terminadas;
-        else // Todas
+        var seleccion = View.CbFiltroEstado.SelectedItem;
+
+        // Si la opción seleccionada es un valor del enum, filtramos por él dinámicamente
+        if (seleccion is EstadoReparacion estado)
+        {
+            View.LbReparaciones.ItemsSource = _gestor.ObtenerPorEstado(estado);
+        }
+        else
+        {
+            // Si es "Todas", muestra la lista completa
             View.LbReparaciones.ItemsSource = _gestor.Todas;
+        }
     }
 
     private void OnAlta()

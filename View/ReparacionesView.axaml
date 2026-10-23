@@ -9,11 +9,7 @@
         <!-- Barra de Filtros (Consultas) -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="10" Margin="0,0,0,10">
             <TextBlock Text="Filtrar por estado:" VerticalAlignment="Center" FontWeight="Bold"/>
-            <ComboBox Name="cbFiltroEstado" Width="150" SelectedIndex="0">
-                <ComboBoxItem>Todas</ComboBoxItem>
-                <ComboBoxItem>Pendientes</ComboBoxItem>
-                <ComboBoxItem>Terminadas</ComboBoxItem>
-            </ComboBox>
+            <ComboBox Name="cbFiltroEstado" Width="150" SelectedIndex="0"/>
         </StackPanel>
 
         <!-- Lista de Reparaciones -->
