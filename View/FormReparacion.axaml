@@ -16,7 +16,7 @@
         <ComboBox Name="cbTrabajador" HorizontalAlignment="Stretch"/>
 
         <TextBlock Text="Estado:" FontWeight="Bold"/>
-        <ComboBox Name="cbEstado" HorizontalAlignment="Stretch"/>
+        <ComboBox Name="cbEstado" HorizontalAlignment="Stretch">
             <ComboBoxItem>Pendiente</ComboBoxItem>
             <ComboBoxItem>Terminada</ComboBoxItem>
         </ComboBox>
