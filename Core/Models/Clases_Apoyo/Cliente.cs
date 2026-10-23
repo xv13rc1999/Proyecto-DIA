@@ -1,4 +1,4 @@
-namespace Proyecto.Core.Models.Clases.Clases_Apoyo;
+namespace Proyecto.Core.Models.Clases_Apoyo;
 
 public class Cliente
 {
