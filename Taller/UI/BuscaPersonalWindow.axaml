@@ -1,0 +1,48 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Width="650" Height="450"
+        MinWidth="500" MinHeight="300"
+        x:Class="Taller.UI.BuscaPersonalWindow"
+        Title="Buscar personal">
+
+    <DockPanel Margin="5">
+
+        <!-- Criterios de búsqueda -->
+        <DockPanel DockPanel.Dock="Top" Margin="5">
+            <Label DockPanel.Dock="Left" Content="Buscar en:"
+                   VerticalAlignment="Center" />
+            <ComboBox DockPanel.Dock="Left" Name="CbCampo"
+                      Margin="5" SelectedIndex="0" Width="110">
+                <ComboBoxItem>Todos</ComboBoxItem>
+                <ComboBoxItem>DNI</ComboBoxItem>
+                <ComboBoxItem>Nombre</ComboBoxItem>
+                <ComboBoxItem>Email</ComboBoxItem>
+            </ComboBox>
+            <Button DockPanel.Dock="Right" Name="BtLimpiar"
+                    Content="Limpiar" Margin="5" />
+            <TextBox Name="EdTexto" Margin="5"
+                     PlaceholderText="Texto a buscar" />
+        </DockPanel>
+
+        <Label DockPanel.Dock="Bottom" Name="LblResultados" Margin="5" />
+
+        <Border Margin="5"
+                BorderThickness="1"
+                CornerRadius="3"
+                BorderBrush="Gray">
+            <DataGrid Name="DtResultados"
+                      Margin="5"
+                      x:CompileBindings="False"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="DNI" Binding="{Binding Dni}" />
+                    <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
+                    <DataGridTextColumn Header="E.mail" Binding="{Binding Email}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+    </DockPanel>
+</Window>

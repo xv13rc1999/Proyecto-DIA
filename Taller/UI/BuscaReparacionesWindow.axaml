@@ -1,0 +1,85 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Width="950" Height="550"
+        MinWidth="750" MinHeight="400"
+        x:Class="Taller.UI.BuscaReparacionesWindow"
+        Title="Buscar reparaciones">
+
+    <DockPanel Margin="5">
+
+        <!-- Criterios de búsqueda -->
+        <Border DockPanel.Dock="Top"
+                Margin="5"
+                BorderThickness="1"
+                CornerRadius="3"
+                BorderBrush="Gray">
+            <StackPanel Orientation="Vertical" Margin="5">
+
+                <DockPanel>
+                    <Label DockPanel.Dock="Left" Content="Asunto / notas:"
+                           Width="110" VerticalAlignment="Center" />
+                    <TextBox Name="EdTexto" Margin="5" />
+                </DockPanel>
+
+                <DockPanel>
+                    <Label DockPanel.Dock="Left" Content="Cliente:"
+                           Width="110" VerticalAlignment="Center" />
+                    <TextBox Name="EdCliente" Margin="5"
+                             PlaceholderText="DNI, nombre o email" />
+                </DockPanel>
+
+                <DockPanel>
+                    <Label DockPanel.Dock="Left" Content="Trabajador:"
+                           Width="110" VerticalAlignment="Center" />
+                    <TextBox Name="EdEmpleado" Margin="5"
+                             PlaceholderText="DNI, nombre o email" />
+                </DockPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Estado:" Width="110" VerticalAlignment="Center" />
+                    <ComboBox Name="CbEstado" Margin="5" SelectedIndex="0" Width="130">
+                        <ComboBoxItem>Todas</ComboBoxItem>
+                        <ComboBoxItem>Pendientes</ComboBoxItem>
+                        <ComboBoxItem>Terminadas</ComboBoxItem>
+                    </ComboBox>
+                    <Label Content="Inicio desde:" Margin="10,0,0,0" VerticalAlignment="Center" />
+                    <CalendarDatePicker Name="DpDesde" Margin="5" />
+                    <Label Content="hasta:" VerticalAlignment="Center" />
+                    <CalendarDatePicker Name="DpHasta" Margin="5" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Name="BtLimpiar" Content="Limpiar" Margin="5" />
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+
+        <Label DockPanel.Dock="Bottom" Name="LblResultados" Margin="5" />
+
+        <Border Margin="5"
+                BorderThickness="1"
+                CornerRadius="3"
+                BorderBrush="Gray">
+            <DataGrid Name="DtResultados"
+                      Margin="5"
+                      x:CompileBindings="False"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Asunto" Binding="{Binding Asunto}" />
+                    <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente.Nombre}" />
+                    <DataGridTextColumn Header="Trabajador" Binding="{Binding Empleado.Nombre}" />
+                    <DataGridTextColumn Header="Inicio"
+                                        Binding="{Binding FechaInicio, StringFormat={}{0:dd/MM/yyyy}}" />
+                    <DataGridTextColumn Header="Fin"
+                                        Binding="{Binding FechaFin, StringFormat={}{0:dd/MM/yyyy}}" />
+                    <DataGridCheckBoxColumn Header="Terminada" Binding="{Binding EstaTerminada, Mode=OneWay}" />
+                    <DataGridTextColumn Header="Notas" Binding="{Binding Notas}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+    </DockPanel>
+</Window>
