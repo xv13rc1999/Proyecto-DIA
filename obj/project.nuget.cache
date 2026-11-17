@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SakJdZmIP2E=",
+  "dgSpecHash": "rbnPVH14ll0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\TALLER\\TALLER\\TALLER.csproj",
+  "projectFilePath": "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\Proyecto-DIA\\TALLER.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Enma\\.nuget\\packages\\avalonia\\12.1.5\\avalonia.12.1.5.nupkg.sha512",
     "C:\\Users\\Enma\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.27548.20260419\\avalonia.angle.windows.natives.2.1.27548.20260419.nupkg.sha512",

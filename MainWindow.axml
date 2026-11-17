@@ -1,0 +1,44 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="TALLER.MainWindow"
+        Title="Gestión Integral del Taller"
+        Width="1024" Height="768"
+        Background="#F4F6F9"
+        FontFamily="Segoe UI, Arial, sans-serif">
+
+    <!-- SplitView es el control ideal para menús laterales -->
+    <SplitView Name="MenuLateral" 
+               IsPaneOpen="True" 
+               DisplayMode="CompactInline" 
+               OpenPaneLength="220" 
+               CompactPaneLength="50">
+        
+        <!-- PANE: EL MENÚ LATERAL -->
+        <SplitView.Pane>
+            <StackPanel Background="#1E293B" Spacing="5" Padding="5">
+                
+                <!-- Botón para colapsar/expandir -->
+                <Button Name="BtnToggleMenu" Content="☰" FontSize="20" Background="Transparent" Foreground="White" Margin="0,0,0,20"/>
+                
+                <TextBlock Text="MÓDULOS" Foreground="#94A3B8" FontWeight="Bold" Margin="10,0,0,10" IsVisible="{Binding #MenuLateral.IsPaneOpen}"/>
+                
+                <!-- Botones de Navegación -->
+                <Button Name="BtnClientes" Content="👥 Clientes" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Padding="10"/>
+                <Button Name="BtnCoches" Content="🚗 Coches" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Padding="10"/>
+                <Button Name="BtnPersonal" Content="👨‍🔧 Personal" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Padding="10"/>
+                <Button Name="BtnReparaciones" Content="🔧 Reparaciones" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Padding="10"/>
+                <Button Name="BtnBusquedas" Content="🔍 Búsquedas" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Padding="10"/>
+                <Button Name="BtnGraficos" Content="📊 Gráficos" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Padding="10"/>
+            </StackPanel>
+        </SplitView.Pane>
+
+        <!-- CONTENT: EL ÁREA DONDE SE CARGAN LAS PANTALLAS -->
+        <SplitView.Content>
+            <Border Background="White" Margin="15" CornerRadius="8" BoxShadow="0 4 12 0 #15000000">
+                <!-- Aquí se inyectarán las clases de tus compañeros -->
+                <ContentControl Name="AreaContenido" Margin="20"/>
+            </Border>
+        </SplitView.Content>
+        
+    </SplitView>
+</Window>

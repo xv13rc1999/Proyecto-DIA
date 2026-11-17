@@ -1719,11 +1719,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\TALLER\\TALLER\\TALLER.csproj",
+      "projectUniqueName": "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\Proyecto-DIA\\TALLER.csproj",
       "projectName": "TALLER",
-      "projectPath": "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\TALLER\\TALLER\\TALLER.csproj",
+      "projectPath": "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\Proyecto-DIA\\TALLER.csproj",
       "packagesPath": "C:\\Users\\Enma\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\TALLER\\TALLER\\obj\\",
+      "outputPath": "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\Proyecto-DIA\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Enma\\AppData\\Roaming\\NuGet\\NuGet.Config"
