@@ -11,6 +11,7 @@ using OxyPlot.Series;
 
 namespace TALLER
 {
+    // CUIDADO AQUÍ: Ahora hereda de UserControl, no de Window
     public partial class Estadisticas : UserControl
     {
         public Estadisticas()
@@ -102,8 +103,8 @@ namespace TALLER
             var barSeries = new OxyPlot.Series.BarSeries
             {
                 Title = "Reparaciones",
-                FillColor = OxyPlot.OxyColor.Parse("#3B82F6"),   // Azul moderno
-                StrokeColor = OxyPlot.OxyColor.Parse("#1D4ED8"), // Borde azul oscuro
+                FillColor = OxyPlot.OxyColor.Parse("#3B82F6"),   
+                StrokeColor = OxyPlot.OxyColor.Parse("#1D4ED8"), 
                 StrokeThickness = 1,
                 BarWidth = 0.6,
                 LabelFormatString = "{0:#}",
@@ -183,7 +184,7 @@ namespace TALLER
             var barSeries = new OxyPlot.Series.BarSeries
             {
                 Title = "Reparaciones",
-                FillColor = OxyPlot.OxyColor.Parse("#2563EB"),   // Azul intenso
+                FillColor = OxyPlot.OxyColor.Parse("#2563EB"),   
                 StrokeColor = OxyPlot.OxyColor.Parse("#1E40AF"),
                 StrokeThickness = 1,
                 BarWidth = 0.55,
@@ -270,7 +271,7 @@ namespace TALLER
             var barSeries = new OxyPlot.Series.BarSeries
             {
                 Title = "Reparaciones",
-                FillColor = OxyPlot.OxyColor.Parse("#10B981"),   // Verde esmeralda
+                FillColor = OxyPlot.OxyColor.Parse("#10B981"),   
                 StrokeColor = OxyPlot.OxyColor.Parse("#059669"),
                 StrokeThickness = 1,
                 BarWidth = 0.6,
@@ -289,13 +290,11 @@ namespace TALLER
 
             plotModel.Series.Add(barSeries);
 
-            // 1. Mostrar el PlotView del histórico general
             var plotView = this.GetControl<OxyPlot.Avalonia.PlotView>("PlotEstadisticasClientes");
             plotView.IsVisible = true;
             plotView.Model = plotModel;
             plotView.InvalidatePlot(true);
 
-            // 2. Vaciar la lista de mini-gráficos
             var listaControles = this.GetControl<Avalonia.Controls.ItemsControl>("ListaGraficosClientes");
             listaControles.ItemsSource = null;
         }
@@ -352,7 +351,7 @@ namespace TALLER
 
                 var barSeries = new OxyPlot.Series.BarSeries
                 {
-                    FillColor = OxyPlot.OxyColor.Parse("#059669"),   // Esmeralda medio
+                    FillColor = OxyPlot.OxyColor.Parse("#059669"),   
                     StrokeColor = OxyPlot.OxyColor.Parse("#047857"),
                     StrokeThickness = 1,
                     BarWidth = 0.55,
@@ -391,12 +390,10 @@ namespace TALLER
                 });
             }
 
-            // 1. Ocultar el PlotView del histórico general
             var plotView = this.GetControl<OxyPlot.Avalonia.PlotView>("PlotEstadisticasClientes");
             plotView.IsVisible = false;
             plotView.Model = null;
 
-            // 2. Cargar los mini-gráficos en el ItemsControl
             var listaControles = this.GetControl<Avalonia.Controls.ItemsControl>("ListaGraficosClientes");
             listaControles.ItemsSource = listaMiniGraficos;
         }
@@ -453,7 +450,7 @@ namespace TALLER
 
                 var barSeries = new OxyPlot.Series.BarSeries
                 {
-                    FillColor = OxyPlot.OxyColor.Parse("#047857"),   // Esmeralda oscuro
+                    FillColor = OxyPlot.OxyColor.Parse("#047857"),   
                     StrokeColor = OxyPlot.OxyColor.Parse("#065F46"),
                     StrokeThickness = 1,
                     BarWidth = 0.55,
@@ -486,12 +483,10 @@ namespace TALLER
                 });
             }
 
-            // 1. Ocultar el PlotView del histórico general
             var plotView = this.GetControl<OxyPlot.Avalonia.PlotView>("PlotEstadisticasClientes");
             plotView.IsVisible = false;
             plotView.Model = null;
 
-            // 2. Cargar los mini-gráficos en el ItemsControl
             var listaControles = this.GetControl<Avalonia.Controls.ItemsControl>("ListaGraficosClientes");
             listaControles.ItemsSource = listaMiniGraficos;
         }

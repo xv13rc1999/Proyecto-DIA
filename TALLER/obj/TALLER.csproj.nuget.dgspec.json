@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\Proyecto-DIA\\TALLER.csproj": {}
+    "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\Proyecto-DIA\\taller\\TALLER.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\Proyecto-DIA\\TALLER.csproj": {
+    "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\Proyecto-DIA\\taller\\TALLER.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\Proyecto-DIA\\TALLER.csproj",
+        "projectUniqueName": "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\Proyecto-DIA\\taller\\TALLER.csproj",
         "projectName": "TALLER",
-        "projectPath": "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\Proyecto-DIA\\TALLER.csproj",
+        "projectPath": "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\Proyecto-DIA\\taller\\TALLER.csproj",
         "packagesPath": "C:\\Users\\Enma\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\Proyecto-DIA\\obj\\",
+        "outputPath": "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\Proyecto-DIA\\taller\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Enma\\AppData\\Roaming\\NuGet\\NuGet.Config"

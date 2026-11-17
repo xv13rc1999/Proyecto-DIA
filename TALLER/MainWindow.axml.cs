@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+
 namespace TALLER
 {
     public partial class MainWindow : Window
@@ -8,32 +9,34 @@ namespace TALLER
         {
             InitializeComponent();
 
-            // Botón para colapsar/expandir el menú
+            // Botón del menú
             var btnToggle = this.GetControl<Button>("BtnToggle");
             var menuLateral = this.GetControl<SplitView>("MenuLateral");
             btnToggle.Click += (_, _) => menuLateral.IsPaneOpen = !menuLateral.IsPaneOpen;
 
-            // Enlaces de navegación
+            // Navegación
             this.GetControl<Button>("BtnClientes").Click += (_, _) => CambiarVista(new VistaClientes());
             this.GetControl<Button>("BtnCoches").Click += (_, _) => CambiarVista(new VistaCoches());
             this.GetControl<Button>("BtnPersonal").Click += (_, _) => CambiarVista(new VistaPersonal());
             this.GetControl<Button>("BtnReparaciones").Click += (_, _) => CambiarVista(new VistaReparaciones());
             this.GetControl<Button>("BtnBusquedas").Click += (_, _) => CambiarVista(new VistaBusquedas());
+            
+            // Carga tu clase actual Estadisticas en lugar de VistaGraficos
             this.GetControl<Button>("BtnGraficos").Click += (_, _) => CambiarVista(new Estadisticas());
 
-            // Vista por defecto al abrir la aplicación
-            CambiarVista(new VistaReparaciones());
+            // Cargar tu módulo por defecto al abrir
+            CambiarVista(new Estadisticas());
         }
 
-        // Método para inyectar el UserControl en el área principal
+        private void InitializeComponent()
+        {
+            AvaloniaXamlLoader.Load(this);
+        }
+
         private void CambiarVista(UserControl nuevaVista)
         {
             var areaContenido = this.GetControl<ContentControl>("AreaContenido");
             areaContenido.Content = nuevaVista;
-        }
-         private void InitializeComponent()
-        {
-            AvaloniaXamlLoader.Load(this);
         }
     }
 }
