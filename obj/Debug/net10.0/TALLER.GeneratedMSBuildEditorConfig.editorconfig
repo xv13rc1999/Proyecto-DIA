@@ -9,7 +9,7 @@ build_property.AvaloniaNameGeneratorAttachDevTools = true
 build_property.AvaloniaUseCompiledBindingsByDefault = true
 build_property.AvaloniaMainPackageVersion = 12.1.5
 build_property.AvaloniaPreviewerNetCoreToolPath = C:\Users\Enma\.nuget\packages\avalonia\12.1.5\buildTransitive\\..\tools\net8.0\designer\Avalonia.Designer.HostApp.dll
-build_property.AvaloniaResourcePaths = C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\TALLER\TALLER\App.axaml,C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\TALLER\TALLER\MainWindow.axaml
+build_property.AvaloniaResourcePaths = C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\Proyecto-DIA\App.axaml,C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\Proyecto-DIA\MainWindow.axaml
 build_property.TargetFramework = net10.0
 build_property.TargetFrameworkIdentifier = .NETCoreApp
 build_property.TargetFrameworkVersion = v10.0
@@ -22,14 +22,14 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property.EntryPointFilePath = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TALLER
-build_property.ProjectDir = C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\TALLER\TALLER\
+build_property.ProjectDir = C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\Proyecto-DIA\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Enma/Desktop/Universidad/CUARTO/DIA/TALLER/TALLER/App.axaml]
+[C:/Users/Enma/Desktop/Universidad/CUARTO/DIA/Proyecto-DIA/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/Enma/Desktop/Universidad/CUARTO/DIA/TALLER/TALLER/MainWindow.axaml]
+[C:/Users/Enma/Desktop/Universidad/CUARTO/DIA/Proyecto-DIA/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
