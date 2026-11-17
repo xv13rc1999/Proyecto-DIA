@@ -11,9 +11,9 @@ using OxyPlot.Series;
 
 namespace TALLER
 {
-    public partial class MainWindow : Window
+    public partial class Estadisticas : UserControl
     {
-        public MainWindow()
+        public Estadisticas()
         {
             InitializeComponent();
 

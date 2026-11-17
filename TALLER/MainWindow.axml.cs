@@ -1,5 +1,5 @@
 using Avalonia.Controls;
-
+using Avalonia.Markup.Xaml;
 namespace TALLER
 {
     public partial class MainWindow : Window
@@ -30,6 +30,10 @@ namespace TALLER
         {
             var areaContenido = this.GetControl<ContentControl>("AreaContenido");
             areaContenido.Content = nuevaVista;
+        }
+         private void InitializeComponent()
+        {
+            AvaloniaXamlLoader.Load(this);
         }
     }
 }

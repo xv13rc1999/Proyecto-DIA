@@ -187,3 +187,14 @@ C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\TALLER\TALLER\obj\Debug\net10.0\ref
 C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\TALLER\TALLER\obj\Debug\net10.0\TALLER.pdb
 C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\TALLER\TALLER\obj\Debug\net10.0\TALLER.genruntimeconfig.cache
 C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\TALLER\TALLER\obj\Debug\net10.0\ref\TALLER.dll
+C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\Proyecto-DIA\obj\Debug\net10.0\TALLER.csproj.AssemblyReference.cache
+C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\Proyecto-DIA\obj\Debug\net10.0\Avalonia\Resources.Inputs.cache
+C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\Proyecto-DIA\obj\Debug\net10.0\Avalonia\resources
+C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\Proyecto-DIA\obj\Debug\net10.0\TALLER.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\Proyecto-DIA\obj\Debug\net10.0\TALLER.AssemblyInfoInputs.cache
+C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\Proyecto-DIA\obj\Debug\net10.0\TALLER.AssemblyInfo.cs
+C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\Proyecto-DIA\obj\Debug\net10.0\TALLER.csproj.CoreCompileInputs.cache
+C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\Proyecto-DIA\obj\Debug\net10.0\TALLER.sourcelink.json
+C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\Proyecto-DIA\obj\Debug\net10.0\TALLER.dll
+C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\Proyecto-DIA\obj\Debug\net10.0\refint\TALLER.dll
+C:\Users\Enma\Desktop\Universidad\CUARTO\DIA\Proyecto-DIA\obj\Debug\net10.0\TALLER.pdb
