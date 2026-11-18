@@ -1,0 +1,34 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Width="500" Height="200"
+        MinWidth="400" MinHeight="180"
+        x:Class="TallerClientes.View.NuevoCliente"
+        Title="Nuevo cliente">
+
+  <DockPanel>
+    <StackPanel DockPanel.Dock="Bottom" FlowDirection="RightToLeft" Orientation="Horizontal" Margin="10">
+      <Button Name="btOk" Margin="10">Ok</Button>
+      <Button Name="btCancelar" Margin="10">Cancelar</Button>
+    </StackPanel>
+
+    <StackPanel>
+        <DockPanel Margin="10">
+          <Label DockPanel.Dock="Left" Width="70">DNI: </Label>
+          <TextBox Name="edDni" />
+        </DockPanel>
+    
+        <DockPanel Margin="10">
+          <Label DockPanel.Dock="Left" Width="70">Nombre: </Label>
+          <TextBox Name="edNombre" />
+        </DockPanel>
+
+        <DockPanel Margin="10">
+          <Label DockPanel.Dock="Left" Width="70">E-mail: </Label>
+          <TextBox Name="edEmail" />
+        </DockPanel>
+    </StackPanel>
+
+  </DockPanel>
+</Window>

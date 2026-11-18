@@ -1,0 +1,25 @@
+namespace TallerClientes.View;
+
+
+using Avalonia.Controls;
+
+
+public partial class MainWindow : Window
+{
+    public ListBox LbClientes { get; }
+    public Button BtNuevo { get; }
+    public Button BtEditar { get; }
+    public Button BtEliminar { get; }
+    public Button BtGuardar { get; }
+    
+    public MainWindow()
+    {
+        InitializeComponent();
+        
+        this.BtNuevo = this.GetControl<Button>( "btNuevo" );
+        this.BtEditar = this.GetControl<Button>( "btEditar" );
+        this.BtEliminar = this.GetControl<Button>( "btEliminar" );
+        this.BtGuardar = this.GetControl<Button>( "btGuardar" );
+        this.LbClientes = this.GetControl<ListBox>( "lbClientes" );
+    }
+}
