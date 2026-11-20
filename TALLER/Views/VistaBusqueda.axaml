@@ -1,6 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="TALLER.VistaBusquedas">
+             x:Class="TallerApp.VistaBusquedas">
     <TextBlock Text="Módulo de Búsquedas (En construcción)" 
                HorizontalAlignment="Center" 
                VerticalAlignment="Center" 

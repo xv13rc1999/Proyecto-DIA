@@ -52,32 +52,31 @@ En el código de la ventana principal, debes enlazar los clics de los botones de
 C#
 using Avalonia.Controls;
 
-namespace TallerApp
+namespace TallerApp;
+
+public partial class MainWindow : Window
 {
-    public partial class MainWindow : Window
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
+        InitializeComponent();
 
-            // Enlazar los botones del menú a la lógica de navegación
-            this.GetControl<Button>("BtnClientes").Click += (_, _) => MostrarVista(new VistaClientes());
-            this.GetControl<Button>("BtnCoches").Click += (_, _) => MostrarVista(new VistaCoches());
-            this.GetControl<Button>("BtnPersonal").Click += (_, _) => MostrarVista(new VistaPersonal());
-            this.GetControl<Button>("BtnReparaciones").Click += (_, _) => MostrarVista(new VistaReparaciones());
-            this.GetControl<Button>("BtnBusquedas").Click += (_, _) => MostrarVista(new VistaBusquedas());
-            this.GetControl<Button>("BtnGraficos").Click += (_, _) => MostrarVista(new VistaGraficos()); // Tu parte[cite: 1]
+        // Enlazar los botones del menú a la lógica de navegación
+        this.GetControl<Button>("BtnClientes").Click += (_, _) => MostrarVista(new VistaClientes());
+        this.GetControl<Button>("BtnCoches").Click += (_, _) => MostrarVista(new VistaCoches());
+        this.GetControl<Button>("BtnPersonal").Click += (_, _) => MostrarVista(new VistaPersonal());
+        this.GetControl<Button>("BtnReparaciones").Click += (_, _) => MostrarVista(new VistaReparaciones());
+        this.GetControl<Button>("BtnBusquedas").Click += (_, _) => MostrarVista(new VistaBusquedas());
+        this.GetControl<Button>("BtnGraficos").Click += (_, _) => MostrarVista(new VistaGraficos()); // Tu parte[cite: 1]
 
-            // Cargar una vista por defecto al abrir la aplicación
-            MostrarVista(new VistaGraficos());
-        }
+        // Cargar una vista por defecto al abrir la aplicación
+        MostrarVista(new VistaGraficos());
+    }
 
-        // Método para inyectar el UserControl en el área principal
-        private void MostrarVista(UserControl nuevaVista)
-        {
-            var areaContenido = this.GetControl<ContentControl>("AreaContenido");
-            areaContenido.Content = nuevaVista;
-        }
+    // Método para inyectar el UserControl en el área principal
+    private void MostrarVista(UserControl nuevaVista)
+    {
+        var areaContenido = this.GetControl<ContentControl>("AreaContenido");
+        areaContenido.Content = nuevaVista;
     }
 }
 4. Flujo de trabajo en grupo

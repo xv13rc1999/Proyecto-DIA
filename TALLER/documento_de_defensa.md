@@ -13,7 +13,7 @@ Antes de que aparezca cualquier ventana, el motor de .NET y Avalonia necesitan i
 ```xml
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="TALLER.App"
+             x:Class="TallerApp.App"
              RequestedThemeVariant="Default">
 
     <Application.Styles>
@@ -37,7 +37,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 
-namespace TALLER;
+namespace TallerApp;
 
 public partial class App : Application
 {
@@ -74,7 +74,7 @@ A continuación tienes el código completo de tu diseño y su explicación líne
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:oxy="clr-namespace:OxyPlot.Avalonia;assembly=OxyPlot.Avalonia"
-        x:Class="TALLER.MainWindow"
+        x:Class="TallerApp.MainWindow"
         Title="Panel de Control - Taller"
         Width="850" Height="720"
         Background="#F4F6F9"

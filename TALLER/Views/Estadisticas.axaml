@@ -1,7 +1,7 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:oxy="clr-namespace:OxyPlot.Avalonia;assembly=OxyPlot.Avalonia"
-             x:Class="TALLER.Estadisticas"
+             x:Class="TallerApp.Estadisticas"
              Background="#F4F6F9"
              FontFamily="Segoe UI, Arial, sans-serif">
 

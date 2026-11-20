@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using System;
 
-namespace TALLER;
+namespace TallerApp;
 
 class Program
 {

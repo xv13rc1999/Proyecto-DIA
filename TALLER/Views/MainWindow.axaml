@@ -1,6 +1,6 @@
-¡<Window xmlns="https://github.com/avaloniaui"
+<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        x:Class="TALLER.MainWindow"
+        x:Class="TallerApp.MainWindow"
         Title="Gestión Integral del Taller"
         Width="1024" Height="768"
         Background="#F4F6F9">
@@ -8,7 +8,7 @@
     <SplitView Name="MenuLateral" IsPaneOpen="True" DisplayMode="CompactInline" OpenPaneLength="220" CompactPaneLength="50">
         
         <SplitView.Pane>
-            <StackPanel Background="#1E293B" Spacing="5" Padding="5">
+            <StackPanel Background="#1E293B" Spacing="5" >
                 <Button Name="BtnToggle" Content="☰" FontSize="20" Background="Transparent" Foreground="White" Margin="0,0,0,20"/>
                 
                 <Button Name="BtnClientes" Content="👥 Clientes" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Padding="10"/>

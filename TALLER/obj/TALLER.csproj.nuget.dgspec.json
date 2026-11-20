@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\Proyecto-DIA\\taller\\TALLER.csproj": {}
+    "C:\\Users\\Usuario\\Desktop\\Isma\\Curso_26_27\\DIA\\proyecto\\Proyecto-DIA\\TALLER\\TALLER.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\Proyecto-DIA\\taller\\TALLER.csproj": {
+    "C:\\Users\\Usuario\\Desktop\\Isma\\Curso_26_27\\DIA\\proyecto\\Proyecto-DIA\\TALLER\\TALLER.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\Proyecto-DIA\\taller\\TALLER.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Isma\\Curso_26_27\\DIA\\proyecto\\Proyecto-DIA\\TALLER\\TALLER.csproj",
         "projectName": "TALLER",
-        "projectPath": "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\Proyecto-DIA\\taller\\TALLER.csproj",
-        "packagesPath": "C:\\Users\\Enma\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Enma\\Desktop\\Universidad\\CUARTO\\DIA\\Proyecto-DIA\\taller\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\Desktop\\Isma\\Curso_26_27\\DIA\\proyecto\\Proyecto-DIA\\TALLER\\TALLER.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Desktop\\Isma\\Curso_26_27\\DIA\\proyecto\\Proyecto-DIA\\TALLER\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Enma\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -95,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.403/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
