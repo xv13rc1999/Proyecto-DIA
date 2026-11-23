@@ -1673,19 +1673,19 @@
     ]
   },
   "packageFolders": {
-    "/home/estudante/.nuget/packages/": {}
+    "C:\\Users\\Usuario\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/estudante/Escritorio/temp/proyecto/ParteIndividualGestionTaller2627/New.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Isma\\Curso_26_27\\DIA\\proyecto\\personal\\Proyecto-DIA\\New.csproj",
       "projectName": "New",
-      "projectPath": "/home/estudante/Escritorio/temp/proyecto/ParteIndividualGestionTaller2627/New.csproj",
-      "packagesPath": "/home/estudante/.nuget/packages/",
-      "outputPath": "/home/estudante/Escritorio/temp/proyecto/ParteIndividualGestionTaller2627/obj/",
+      "projectPath": "C:\\Users\\Usuario\\Desktop\\Isma\\Curso_26_27\\DIA\\proyecto\\personal\\Proyecto-DIA\\New.csproj",
+      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Usuario\\Desktop\\Isma\\Curso_26_27\\DIA\\proyecto\\personal\\Proyecto-DIA\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/estudante/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -1758,7 +1758,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/estudante/Escritorio/temp/sdk/10.0.404/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.403/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

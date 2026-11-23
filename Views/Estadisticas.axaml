@@ -1,0 +1,115 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:oxy="clr-namespace:OxyPlot.Avalonia;assembly=OxyPlot.Avalonia"
+             x:Class="Taller.Estadisticas"
+             Background="#F4F6F9"
+             FontFamily="Segoe UI, Arial, sans-serif">
+
+    <!-- EL ÚNICO HIJO DIRECTO DEL USERCONTROL -->
+    <ScrollViewer>
+        <StackPanel Margin="25">
+            
+            <!-- TÍTULO PRINCIPAL -->
+            <Label Content="Estadísticas del Taller" 
+                   FontSize="24" 
+                   FontWeight="Bold" 
+                   Foreground="#1E293B" 
+                   Margin="0,0,0,20"/>
+
+            <!-- TARJETA 1: ESTADÍSTICAS GENERALES -->
+            <Border Background="White" CornerRadius="10" Padding="20" Margin="0,0,0,25" BoxShadow="0 4 12 0 #15000000">
+                <StackPanel>
+                    <Label Content="1. Reparaciones Generales" 
+                           FontSize="16" 
+                           FontWeight="Bold" 
+                           Foreground="#334155" 
+                           Margin="0,0,0,12"/>
+                    
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                        <Button Name="BtCalcular" 
+                                Content="📅 Mensuales" 
+                                Background="#3B82F6" 
+                                Foreground="White" 
+                                FontWeight="SemiBold"
+                                Padding="15,8" 
+                                CornerRadius="6" 
+                                Margin="0,0,10,0" />
+                                
+                        <Button Name="BtCalcularAnual" 
+                                Content="📊 Anuales" 
+                                Background="#2563EB" 
+                                Foreground="White" 
+                                FontWeight="SemiBold"
+                                Padding="15,8" 
+                                CornerRadius="6" />
+                    </StackPanel>
+                    
+                    <oxy:PlotView Name="PlotEstadisticas" Height="230" Background="White"/>
+                </StackPanel>
+            </Border>
+            
+            <!-- TARJETA 2: ESTADÍSTICAS POR CLIENTE -->
+            <Border Background="White" CornerRadius="10" Padding="20" BoxShadow="0 4 12 0 #15000000">
+                <StackPanel>
+                    <Label Content="2. Análisis por Cliente" 
+                           FontSize="16" 
+                           FontWeight="Bold" 
+                           Foreground="#334155" 
+                           Margin="0,0,0,12"/>
+                    
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                        <Button Name="BtCalcularClientes" 
+                                Content="🏆 Total Histórico" 
+                                Background="#10B981" 
+                                Foreground="White" 
+                                FontWeight="SemiBold"
+                                Padding="15,8" 
+                                CornerRadius="6" 
+                                Margin="0,0,10,0" />
+                                
+                        <Button Name="BtCalcularClienteMensual" 
+                                Content="📈 Desglose Mensual" 
+                                Background="#059669" 
+                                Foreground="White" 
+                                FontWeight="SemiBold"
+                                Padding="15,8" 
+                                CornerRadius="6" 
+                                Margin="0,0,10,0" />
+                                
+                        <Button Name="BtCalcularClienteAnual" 
+                                Content="🗂️ Desglose Anual" 
+                                Background="#047857" 
+                                Foreground="White" 
+                                FontWeight="SemiBold"
+                                Padding="15,8" 
+                                CornerRadius="6" />
+                    </StackPanel>
+                    
+                    <!-- Gráfico Histórico General -->
+                    <oxy:PlotView Name="PlotEstadisticasClientes" Height="230" Background="White"/>
+
+                    <!-- Lista de Mini-Gráficos -->
+                    <ScrollViewer Height="260">
+                        <ItemsControl Name="ListaGraficosClientes">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:CompileBindings="False">
+                                    <Border Background="#F8FAFC" BorderBrush="#E2E8F0" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,0,10,15">
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Titulo}" 
+                                                       FontSize="14" 
+                                                       FontWeight="Bold" 
+                                                       Foreground="#0F172A" 
+                                                       Margin="5,0,0,8"/>
+                                            <oxy:PlotView Model="{Binding Modelo}" Height="140" Background="Transparent"/>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
