@@ -4,7 +4,7 @@ namespace TallerClientes.View;
 using Avalonia.Controls;
 
 
-public partial class MainWindow : UserControl
+public partial class VistaClientes : UserControl
 {
     public ListBox LbClientes { get; }
     public Button BtNuevo { get; }
