@@ -1,0 +1,101 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Taller.UI.ViewModels"
+             xmlns:core="using:Taller.Core.Coches"
+             mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="500"
+             x:Class="Taller.UI.Views.CochesView"
+             x:DataType="vm:CochesViewModel">
+
+    <Design.DataContext>
+        <vm:CochesViewModel />
+    </Design.DataContext>
+
+    <UserControl.Styles>
+        <Style Selector="TextBlock.cabecera">
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Opacity" Value="0.7" />
+        </Style>
+        <Style Selector="TextBlock.mensaje">
+            <Setter Property="Foreground" Value="SeaGreen" />
+        </Style>
+        <Style Selector="TextBlock.mensaje.error">
+            <Setter Property="Foreground" Value="IndianRed" />
+        </Style>
+    </UserControl.Styles>
+
+    <Grid ColumnDefinitions="*,320" Margin="12">
+
+        <!-- ===== Izquierda: búsqueda y lista ===== -->
+        <DockPanel Grid.Column="0" Margin="0,0,12,0">
+
+            <TextBox DockPanel.Dock="Top"
+                     Text="{Binding TextoBusqueda}"
+                     PlaceholderText="Buscar por matrícula, marca o modelo..."
+                     Margin="0,0,0,8" />
+
+            <!-- Salvaguarda y recuperación -->
+            <StackPanel DockPanel.Dock="Bottom" Margin="0,8,0,0" Spacing="4">
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <Button Content="Guardar en disco" Command="{Binding GuardaFicheroCommand}" />
+                    <Button Content="Recuperar de disco" Command="{Binding RecuperaFicheroCommand}" />
+                    <TextBlock Text="{Binding Resumen}" VerticalAlignment="Center" Opacity="0.7" />
+                </StackPanel>
+                <TextBlock Text="{Binding Fichero, StringFormat='Fichero: {0}'}"
+                           FontSize="11" Opacity="0.6" TextTrimming="CharacterEllipsis" />
+            </StackPanel>
+
+            <!-- Cabecera de columnas (mismo ancho que la plantilla de cada fila) -->
+            <Grid DockPanel.Dock="Top" ColumnDefinitions="130,*,*" Margin="12,0,12,4">
+                <TextBlock Grid.Column="0" Classes="cabecera" Text="Matrícula" />
+                <TextBlock Grid.Column="1" Classes="cabecera" Text="Marca" />
+                <TextBlock Grid.Column="2" Classes="cabecera" Text="Modelo" />
+            </Grid>
+
+            <ListBox ItemsSource="{Binding CochesVisibles}"
+                     SelectedItem="{Binding CocheSeleccionado, Mode=TwoWay}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate x:DataType="core:Coche">
+                        <Grid ColumnDefinitions="130,*,*">
+                            <Grid.Styles><Style Selector="TextBlock"><Setter Property="VerticalAlignment" Value="Center" /></Style></Grid.Styles>
+                            <TextBlock Grid.Column="0" Text="{Binding Matricula}" FontFamily="Consolas, monospace" />
+                            <TextBlock Grid.Column="1" Text="{Binding Marca}" />
+                            <TextBlock Grid.Column="2" Text="{Binding Modelo}" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DockPanel>
+
+        <!-- ===== Derecha: formulario de alta / modificación ===== -->
+        <Border Grid.Column="1"
+                BorderBrush="Gray" BorderThickness="1" CornerRadius="6" Padding="16">
+            <StackPanel Spacing="8">
+                <TextBlock Text="{Binding TituloFormulario}" FontSize="18" FontWeight="SemiBold" />
+
+                <TextBlock Text="Matrícula" />
+                <TextBox Text="{Binding Matricula}" PlaceholderText="1234 BCD" />
+
+                <TextBlock Text="Marca" />
+                <TextBox Text="{Binding Marca}" />
+
+                <TextBlock Text="Modelo" />
+                <TextBox Text="{Binding Modelo}" />
+
+                <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,8,0,0">
+                    <!-- IsDefault: se pulsa también con Enter -->
+                    <Button Content="Guardar" Command="{Binding GuardaCommand}" IsDefault="True"
+                            Classes="accent" />
+                    <Button Content="Nuevo" Command="{Binding NuevoCommand}" />
+                    <Button Content="Eliminar" Command="{Binding EliminaCommand}" />
+                </StackPanel>
+
+                <TextBlock Text="{Binding Mensaje}"
+                           Classes="mensaje"
+                           Classes.error="{Binding EsError}"
+                           TextWrapping="Wrap" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

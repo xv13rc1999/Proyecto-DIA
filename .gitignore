@@ -1,0 +1,14 @@
+﻿# Backups
+*~
+*.bak
+
+# Binarios
+*.exe
+*.dll
+bin/
+obj/
+
+# IDEs
+.vs/
+.idea/
+*.user
