@@ -4,7 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Width="500" Height="200"
         MinWidth="400" MinHeight="180"
-        x:Class="TallerClientes.View.EditarCliente"
+        x:Class="Taller.View.EditarCliente"
         Title="Editar cliente">
 
   <DockPanel>
