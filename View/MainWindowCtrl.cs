@@ -9,16 +9,16 @@ using System.Xml.Linq;
 using Core;
 
 
-public class MainWindowCtrl
+public class VistaClientesCtrl
 {
-    public MainWindow View { get; }
+    public VistaClientes View { get; }
     public IEnumerable<Cliente> All => this.reg.All;
     private RegistroClientes reg;
     
-    public MainWindowCtrl()
+    public VistaClientesCtrl()
     {
         this.reg = new RegistroClientes();
-        this.View = new MainWindow();
+        this.View = new VistaClientes();
         this.View.BtNuevo.Click += (_, _) => this.OnNew();
         this.View.BtEditar.Click += (_, _) => this.OnEdit();
         this.View.BtEliminar.Click += (_, _) => this.OnDelete();
