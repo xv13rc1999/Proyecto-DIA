@@ -1,4 +1,4 @@
-namespace TallerClientes.View;
+namespace Taller.View;
 
 
 using Avalonia;
