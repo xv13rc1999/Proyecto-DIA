@@ -54,8 +54,27 @@ public class ContenedorDatos{
             return CodigoValidacion.EmailDuplicated;
         }
 
-        _listaPersonal.Add(new Personal(dni, nombre.Trim(), email));
+        Personal nuevoPersonal = new(dni, nombre.Trim(), email);
+        _listaPersonal.Add(nuevoPersonal);
 
+        if (reparacionesAsignadas is not null)
+        {
+            List<Reparacion> listaReparacionesAModificar =
+                        [.. _listaReparaciones.Where( r => reparacionesAsignadas.Contains(r.Asunto))];
+
+            foreach (Reparacion anteriorReparacion in listaReparacionesAModificar)
+            {
+                _listaReparaciones.Remove(anteriorReparacion);
+                _listaReparaciones.Add( new Reparacion(
+                    nuevoPersonal,
+                    anteriorReparacion.Cliente,
+                    anteriorReparacion.Asunto,
+                    anteriorReparacion.FechaInicio,
+                    anteriorReparacion.FechaFin,
+                    anteriorReparacion.Notas
+                ));
+            }
+        }
         return CodigoValidacion.Ok;
     }
 

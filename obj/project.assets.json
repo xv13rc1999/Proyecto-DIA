@@ -107,6 +107,22 @@
           "buildTransitive/Avalonia.BuildServices.targets": {}
         }
       },
+      "Avalonia.Controls.DataGrid/12.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Avalonia": "12.1.0"
+        },
+        "compile": {
+          "lib/net10.0/Avalonia.Controls.DataGrid.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Avalonia.Controls.DataGrid.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Avalonia.Desktop/12.1.5": {
         "type": "package",
         "dependencies": {
@@ -331,22 +347,6 @@
           "buildMultiTargeting/AvaloniaUI.DiagnosticsSupport.props": {}
         }
       },
-      "CommunityToolkit.Mvvm/8.4.2": {
-        "type": "package",
-        "compile": {
-          "lib/net8.0/CommunityToolkit.Mvvm.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/CommunityToolkit.Mvvm.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/CommunityToolkit.Mvvm.targets": {}
-        }
-      },
       "HarfBuzzSharp/8.3.1.3": {
         "type": "package",
         "dependencies": {
@@ -535,6 +535,32 @@
         },
         "runtime": {
           "lib/net6.0/Microsoft.IO.RecyclableMemoryStream.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Oxyplot.Avalonia/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Avalonia": "12.0.2",
+          "OxyPlot.Core": "2.2.0"
+        },
+        "compile": {
+          "lib/net10.0/OxyPlot.Avalonia.dll": {}
+        },
+        "runtime": {
+          "lib/net10.0/OxyPlot.Avalonia.dll": {}
+        }
+      },
+      "OxyPlot.Core/2.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/OxyPlot.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/OxyPlot.dll": {
             "related": ".xml"
           }
         }
@@ -859,6 +885,24 @@
         "tools/netstandard2.0/runtimeconfig.json"
       ]
     },
+    "Avalonia.Controls.DataGrid/12.1.2": {
+      "sha512": "Tw02SZd/B42Gq6/l9IBPfuM+VsHPq7c6LXb9mT0xVjZB2UPeynfKlBgQDcrhu/SOfYUGk7tQSRmLFM2kaAjdrw==",
+      "type": "package",
+      "path": "avalonia.controls.datagrid/12.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "_manifest/cyclonedx/bom.cdx.json",
+        "avalonia.controls.datagrid.12.1.2.nupkg.sha512",
+        "avalonia.controls.datagrid.nuspec",
+        "lib/net10.0/Avalonia.Controls.DataGrid.dll",
+        "lib/net10.0/Avalonia.Controls.DataGrid.xml",
+        "lib/net8.0/Avalonia.Controls.DataGrid.dll",
+        "lib/net8.0/Avalonia.Controls.DataGrid.xml",
+        "readme.md"
+      ]
+    },
     "Avalonia.Desktop/12.1.5": {
       "sha512": "l1jo9qKJjJ68gcuUwHgNgpsHV6STcvqfYTFvFPprOf949gmE506X/d7Mox/y36tU2BSWBqLGZ1M3mh8Ggl2g/Q==",
       "type": "package",
@@ -1073,46 +1117,6 @@
         "lib/net10.0/v11/AvaloniaUI.DiagnosticsSupport.Avalonia.dll",
         "lib/net8.0/AvaloniaUI.DiagnosticsSupport.Avalonia.dll",
         "lib/net8.0/v11/AvaloniaUI.DiagnosticsSupport.Avalonia.dll"
-      ]
-    },
-    "CommunityToolkit.Mvvm/8.4.2": {
-      "sha512": "WadCzGEc2U+3e20avRLng4qNtt4zoOGWrdUISqJWrHe3/FSnrYjuM5Sb4yQb09LhkBXrrI4Zt3dLKgRMbItsrg==",
-      "type": "package",
-      "path": "communitytoolkit.mvvm/8.4.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "License.md",
-        "ThirdPartyNotices.txt",
-        "analyzers/dotnet/roslyn4.0/cs/CommunityToolkit.Mvvm.CodeFixers.dll",
-        "analyzers/dotnet/roslyn4.0/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
-        "analyzers/dotnet/roslyn4.12/cs/CommunityToolkit.Mvvm.CodeFixers.dll",
-        "analyzers/dotnet/roslyn4.12/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
-        "analyzers/dotnet/roslyn4.3/cs/CommunityToolkit.Mvvm.CodeFixers.dll",
-        "analyzers/dotnet/roslyn4.3/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
-        "analyzers/dotnet/roslyn5.0/cs/CommunityToolkit.Mvvm.CodeFixers.dll",
-        "analyzers/dotnet/roslyn5.0/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
-        "build/CommunityToolkit.Mvvm.FeatureSwitches.targets",
-        "build/CommunityToolkit.Mvvm.SourceGenerators.targets",
-        "build/CommunityToolkit.Mvvm.Windows.targets",
-        "build/CommunityToolkit.Mvvm.WindowsSdk.targets",
-        "build/CommunityToolkit.Mvvm.targets",
-        "buildTransitive/CommunityToolkit.Mvvm.FeatureSwitches.targets",
-        "buildTransitive/CommunityToolkit.Mvvm.SourceGenerators.targets",
-        "buildTransitive/CommunityToolkit.Mvvm.Windows.targets",
-        "buildTransitive/CommunityToolkit.Mvvm.WindowsSdk.targets",
-        "buildTransitive/CommunityToolkit.Mvvm.targets",
-        "communitytoolkit.mvvm.8.4.2.nupkg.sha512",
-        "communitytoolkit.mvvm.nuspec",
-        "lib/net8.0-windows10.0.17763/CommunityToolkit.Mvvm.dll",
-        "lib/net8.0-windows10.0.17763/CommunityToolkit.Mvvm.xml",
-        "lib/net8.0/CommunityToolkit.Mvvm.dll",
-        "lib/net8.0/CommunityToolkit.Mvvm.xml",
-        "lib/netstandard2.0/CommunityToolkit.Mvvm.dll",
-        "lib/netstandard2.0/CommunityToolkit.Mvvm.xml",
-        "lib/netstandard2.1/CommunityToolkit.Mvvm.dll",
-        "lib/netstandard2.1/CommunityToolkit.Mvvm.xml"
       ]
     },
     "HarfBuzzSharp/8.3.1.3": {
@@ -1413,6 +1417,41 @@
         "microsoft.io.recyclablememorystream.nuspec"
       ]
     },
+    "Oxyplot.Avalonia/2.2.0": {
+      "sha512": "KNgZ1H7MTurIFetfBM1CRtW/nfPiVNGpLgfeAS6nJ+MGHzHEdLzt40/yR4WG0JF3jBpReihQCmC614OC1lysKg==",
+      "type": "package",
+      "path": "oxyplot.avalonia/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "OxyPlot_128.png",
+        "README.md",
+        "lib/net10.0/OxyPlot.Avalonia.dll",
+        "oxyplot.avalonia.2.2.0.nupkg.sha512",
+        "oxyplot.avalonia.nuspec"
+      ]
+    },
+    "OxyPlot.Core/2.2.0": {
+      "sha512": "QhXNdXR5FPpro/VoLx3BOp6AhQo7YrbfmWEZ9cgY+pnYM7RYORZjnu+aDMA8ka9A1r8hLkX//NbCPZNUv+l8qA==",
+      "type": "package",
+      "path": "oxyplot.core/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "OxyPlot_128.png",
+        "README.md",
+        "lib/net462/OxyPlot.dll",
+        "lib/net462/OxyPlot.xml",
+        "lib/net6.0/OxyPlot.dll",
+        "lib/net6.0/OxyPlot.xml",
+        "lib/net8.0/OxyPlot.dll",
+        "lib/net8.0/OxyPlot.xml",
+        "lib/netstandard2.0/OxyPlot.dll",
+        "lib/netstandard2.0/OxyPlot.xml",
+        "oxyplot.core.2.2.0.nupkg.sha512",
+        "oxyplot.core.nuspec"
+      ]
+    },
     "SkiaSharp/3.119.4": {
       "sha512": "53NOSUZ1Us+91Sm0uCkIivh/k7jOowRErZT2sIWwPFN9mLUvdxnE6rS4sWo4255+Rd2MWUSF+j0NMZHD6Cke+Q==",
       "type": "package",
@@ -1665,11 +1704,13 @@
   "projectFileDependencyGroups": {
     "net10.0": [
       "Avalonia >= 12.1.5",
+      "Avalonia.Controls.DataGrid >= 12.1.2",
       "Avalonia.Desktop >= 12.1.5",
       "Avalonia.Fonts.Inter >= 12.1.5",
       "Avalonia.Themes.Fluent >= 12.1.5",
       "AvaloniaUI.DiagnosticsSupport >= 2.2.3",
-      "CommunityToolkit.Mvvm >= 8.4.2"
+      "OxyPlot.Core >= 2.2.0",
+      "Oxyplot.Avalonia >= 2.2.0"
     ]
   },
   "packageFolders": {
@@ -1678,9 +1719,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Isma\\Curso_26_27\\DIA\\proyecto\\personal\\Proyecto-DIA\\New.csproj",
-      "projectName": "New",
-      "projectPath": "C:\\Users\\Usuario\\Desktop\\Isma\\Curso_26_27\\DIA\\proyecto\\personal\\Proyecto-DIA\\New.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Isma\\Curso_26_27\\DIA\\proyecto\\personal\\Proyecto-DIA\\TALLER.csproj",
+      "projectName": "TALLER",
+      "projectPath": "C:\\Users\\Usuario\\Desktop\\Isma\\Curso_26_27\\DIA\\proyecto\\personal\\Proyecto-DIA\\TALLER.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Usuario\\Desktop\\Isma\\Curso_26_27\\DIA\\proyecto\\personal\\Proyecto-DIA\\obj\\",
       "projectStyle": "PackageReference",
@@ -1721,6 +1762,10 @@
             "target": "Package",
             "version": "[12.1.5, )"
           },
+          "Avalonia.Controls.DataGrid": {
+            "target": "Package",
+            "version": "[12.1.2, )"
+          },
           "Avalonia.Desktop": {
             "target": "Package",
             "version": "[12.1.5, )"
@@ -1737,9 +1782,13 @@
             "target": "Package",
             "version": "[2.2.3, )"
           },
-          "CommunityToolkit.Mvvm": {
+          "OxyPlot.Core": {
             "target": "Package",
-            "version": "[8.4.2, )"
+            "version": "[2.2.0, )"
+          },
+          "Oxyplot.Avalonia": {
+            "target": "Package",
+            "version": "[2.2.0, )"
           }
         },
         "imports": [

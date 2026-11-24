@@ -11,36 +11,35 @@ public partial class FormularioPersonal : Window
     public string Dni = string.Empty;
     public string Nombre = string.Empty;
     public string Email = string.Empty;
-    public List<SeleccionReparacionDTO> ReparacionesAsignadas;
-
+    public List<SeleccionReparacionDTO> SelectorReparaciones;
     public PersonalAsignadoDTO? Resultado { get; private set; } = null;
 
     public FormularioPersonal(ContenedorDatos datosTaller, Personal? p = null)
     {
-        ReparacionesAsignadas = [.. datosTaller.ListaReparaciones.Where( r => r.FechaFin == null)
+        SelectorReparaciones = [.. datosTaller.ListaReparaciones.Where( r => r.FechaFin == null)
                 .Select( r => new SeleccionReparacionDTO{
                         Asunto = r.Asunto,
                         Seleccionada = false
                 })];
+        
+        List<string> reparacionesAsignadas = [.. datosTaller.ListaReparaciones
+                                                .Where( r => r.Empleado != null && r.Empleado.Equals( p ) )
+                                                .Select( r => r.Asunto )];
 
         if (p != null)
         {
-            //TODO Marcar las reparaciones que tenga asignadas
-            
-            /*
-            for (int i=0; i<ReparacionesAsignadas.Count; i++)
+            for (int i=0; i<SelectorReparaciones.Count; i++)
             {
-                if (p.ReparacionesAsignadas.Contains(ReparacionesAsignadas[i].IdReparacion))
+                if (reparacionesAsignadas.Contains(SelectorReparaciones[i].Asunto))
                 {
-                    ReparacionesAsignadas[i] =
-                        new SeleccionReparacion
+                    SelectorReparaciones[i] =
+                        new SeleccionReparacionDTO
                         {
-                            IdReparacion = ReparacionesAsignadas[i].IdReparacion,
+                            Asunto = SelectorReparaciones[i].Asunto,
                             Seleccionada = true
                         };
                 }
             }
-            */
 
             Dni = p.Dni;
             Nombre = p.Nombre;
@@ -51,15 +50,14 @@ public partial class FormularioPersonal : Window
     private void GuardarCambios(Window? window)
     {
         Resultado = new PersonalAsignadoDTO
-        (
-            this.Dni.Trim().ToUpper(),
-            this.Nombre,
-            this.Email,
-            ReparacionesAsignadas = [.. ReparacionesAsignadas
+        {
+            Dni = this.Dni.Trim().ToUpper(),
+            Nombre = this.Nombre,
+            Email = this.Email,
+            ReparacionesAsignadas = [.. SelectorReparaciones
                                         .Where( r => r.Seleccionada )
-                                        .Select( r => r.IdReparacion )]
-        );
-        //TODO Asignar reparaciones
+                                        .Select( r => r.Asunto )]
+        };
         window?.Close(true);
     }
 

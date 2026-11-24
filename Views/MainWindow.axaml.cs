@@ -30,7 +30,7 @@ public partial class MainWindow : Window
         this.GetControl<Button>("BtnGraficos").Click += (_, _) => CambiarVista(new Estadisticas());
 
         // Cargar tu módulo por defecto al abrir
-        CambiarVista(new VistaPersonal(buscador));
+        CambiarVista(new VistaPersonal(_datosTaller));
     }
 
     private void InitializeComponent()

@@ -4,9 +4,9 @@ namespace Taller.Utils.DTOs;
 
 public class PersonalAsignadoDTO {
         
-        public string Dni;
-        public string Nombre;
-        public string Email;
-        public List<SeleccionReparacionDTO> ReparacionesAsignadas;
+        public string Dni = string.Empty;
+        public string Nombre = string.Empty;
+        public string Email = string.Empty;
+        public List<string> ReparacionesAsignadas = [];
         public PersonalAsignadoDTO(){}
     }

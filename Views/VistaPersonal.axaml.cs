@@ -23,7 +23,7 @@ public partial class VistaPersonal : UserControl
         this.GetControl<ComboBox>( "CbCampo" ).SelectionChanged += (_, _) => this.OnBuscar();
         this.GetControl<Button>( "BtLimpiar" ).Click += (_, _) => this.OnLimpiar();
 
-        this.GetControl<Button>("BtAnadir").Click += (_,_) => this.OnAñadirAsync();
+        this.GetControl<Button>("BtAnadir").Click += async (_,_) => await this.OnAñadirAsync();
         this.GetControl<Button>("BtModificar").Click += (_,_) => this.OnModificar();
         this.GetControl<Button>("BtEliminar").Click += (_,_) => this.OnEliminar();
 
