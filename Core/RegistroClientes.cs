@@ -1,4 +1,4 @@
-namespace TallerClientes.Core;
+namespace Taller.Core;
 
 
 using System;
