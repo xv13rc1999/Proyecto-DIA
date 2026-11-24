@@ -24,7 +24,7 @@ public partial class VistaPersonal : UserControl
         this.GetControl<Button>( "BtLimpiar" ).Click += (_, _) => this.OnLimpiar();
 
         this.GetControl<Button>("BtAnadir").Click += async (_,_) => await this.OnAñadirAsync();
-        this.GetControl<Button>("BtModificar").Click += (_,_) => this.OnModificar();
+        this.GetControl<Button>("BtModificar").Click += async (_,_) => await this.OnModificarAsync();
         this.GetControl<Button>("BtEliminar").Click += (_,_) => this.OnEliminar();
 
         this._datosTaller = datos;
@@ -77,14 +77,25 @@ public partial class VistaPersonal : UserControl
         cbCampo.SelectedIndex = 0;
         this.OnBuscar();
     }
-
-    //TODO Colorear campos en caso de mal introducidos
+    
     public async Task OnAñadirAsync()
     {
-        FormularioPersonal formularioDialogo;
+        await MostrarFormPersonalAsync();
+    }
 
-        formularioDialogo = new(_datosTaller);
+    public async Task OnModificarAsync()
+    {
+        object? personalSeleccionado = this.GetControl<DataGrid>( "DtResultados" ).SelectedItem;
+        if (personalSeleccionado is not null)
+        {
+            await MostrarFormPersonalAsync((Personal) personalSeleccionado);
+        }
+    }
 
+    public async Task MostrarFormPersonalAsync(Personal? p = null)
+    {
+        FormularioPersonal formularioDialogo = new(_datosTaller, p);
+        
         if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop && desktop.MainWindow != null)
         {
             var resultadoDialogo = await formularioDialogo.ShowDialog<bool>(desktop.MainWindow);
@@ -92,23 +103,32 @@ public partial class VistaPersonal : UserControl
             PersonalAsignadoDTO? nuevoPersonal = formularioDialogo.Resultado;
             if (resultadoDialogo && nuevoPersonal is not null)
             {
-                _datosTaller.AñadirPersonal(nuevoPersonal.Dni, nuevoPersonal.Nombre,
+                if (p is null) //Añadir
+                {
+                    _datosTaller.AñadirPersonal(nuevoPersonal.Dni, nuevoPersonal.Nombre,
                                     nuevoPersonal.Email, nuevoPersonal.ReparacionesAsignadas);
+                }
+                else //Modificar
+                {
+                    _datosTaller.ActualizarPersonal(nuevoPersonal.Dni, nuevoPersonal.Nombre,
+                                    nuevoPersonal.Email, nuevoPersonal.ReparacionesAsignadas);
+                }
+                
             }
 
             this.OnBuscar();
         }
     }
 
-    //TODO
-    public void OnModificar()
-    {
-        
-    }
-
-    //TODO
     public void OnEliminar()
     {
-        
+        object? personalSeleccionado = this.GetControl<DataGrid>( "DtResultados" ).SelectedItem;
+        if (personalSeleccionado is not null)
+        {
+            Personal eliminable = (Personal) personalSeleccionado;
+            _datosTaller.EliminarPersonal(eliminable.Dni);
+        }
+
+        this.OnBuscar();
     }
 }

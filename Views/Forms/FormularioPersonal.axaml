@@ -11,13 +11,13 @@
     <StackPanel>
         <StackPanel Spacing="10" Margin="20">
             <TextBlock Text="Dni:" />
-            <TextBox Name="CampoDni" Text="{Binding Dni}" />
+            <TextBox Name="CampoDni" />
 
             <TextBlock Text="Nombre:" />
-            <TextBox Name="CampoNombre" Text="{Binding Nombre}" />
+            <TextBox Name="CampoNombre" />
 
             <TextBlock Text="Email:" />
-            <TextBox Name="CampoEmail" Text="{Binding Email}" />
+            <TextBox Name="CampoEmail" />
 
             <Border>
                 <ListBox ItemsSource="{Binding SelectorReparaciones}">

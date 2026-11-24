@@ -104,7 +104,7 @@ public class ContenedorDatos{
         else {return CodigoValidacion.PersonalDeleteUnexpected;}
     }
 
-    public CodigoValidacion ActualizarPersonal(string dni, string nombre, string email, List<string>? reparacionesAsignadas)
+    public CodigoValidacion ActualizarPersonal(string dni, string nombre, string email, List<string>? reparacionesAsignadas = null)
     {
         IQueryable<Personal> query = _listaPersonal.AsQueryable();
 
@@ -114,9 +114,9 @@ public class ContenedorDatos{
         if (queryList.Count > 1) {return CodigoValidacion.PersonalDuplicated;}
 
         //Comprobar que al menos 1 atributo es distinto a los originales
-        Personal datosActuales = queryList[0];
-        if (datosActuales.Nombre.Equals(nombre)
-            && datosActuales.Email.Equals(email))
+        Personal datosOriginales = queryList[0];
+        if (datosOriginales.Nombre.Equals(nombre)
+            && datosOriginales.Email.Equals(email))
         {
             return CodigoValidacion.PersonalModificationSameValues;
         }
@@ -128,7 +128,7 @@ public class ContenedorDatos{
 
         //Si Email nuevo == Email actual => OK
         // Si Email nuevo == Email de OTRO usuario => MAL, EmailDuplicated
-        if (!datosActuales.Email.Equals(email))
+        if (!datosOriginales.Email.Equals(email))
         {
             if(queryList.Where( p => p.Email.Equals(email)).ToList().Count != 0)
             {
@@ -139,8 +139,45 @@ public class ContenedorDatos{
             if(!temp.Equals(CodigoValidacion.Ok)) return temp;
         }
 
-        _listaPersonal.Remove(datosActuales);
-        _listaPersonal.Add(new Personal(dni, nombre, email));
+        Personal nuevoPersonal = new(dni, nombre, email);
+        _listaPersonal.Remove(datosOriginales);
+        _listaPersonal.Add(nuevoPersonal);
+
+        if (reparacionesAsignadas is not null)
+        {
+            //Desasignar reparaciones originales
+            List<Reparacion> reparacionesAActualizar = [.. _listaReparaciones.Where( r => r.Empleado != null
+                                                                    && r.Empleado.Dni.Equals(datosOriginales.Dni))];
+
+            foreach (Reparacion r in reparacionesAActualizar)
+            {
+                _listaReparaciones.Remove(r);
+                _listaReparaciones.Add(new Reparacion(
+                    null,
+                    r.Cliente,
+                    r.Asunto,
+                    r.FechaInicio,
+                    r.FechaFin,
+                    r.Notas
+                ));
+            }
+            
+            //Actualizar reparaciones asignadas
+            reparacionesAActualizar = [.. _listaReparaciones.Where( r => reparacionesAsignadas.Equals(r.Asunto))];
+
+            foreach (Reparacion r in reparacionesAActualizar)
+            {
+                _listaReparaciones.Remove(r);
+                _listaReparaciones.Add(new Reparacion(
+                    nuevoPersonal,
+                    r.Cliente,
+                    r.Asunto,
+                    r.FechaInicio,
+                    r.FechaFin,
+                    r.Notas
+                ));
+            }
+        }
         return CodigoValidacion.Ok;
     }
 }

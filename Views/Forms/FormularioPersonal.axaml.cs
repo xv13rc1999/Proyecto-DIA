@@ -12,9 +12,6 @@ namespace Taller.Views.Forms;
 
 public partial class FormularioPersonal : Window
 {
-    public string Dni { get; set; } = string.Empty;
-    public string Nombre { get; set; } = string.Empty;
-    public string Email { get; set; } = string.Empty;
     public List<SeleccionReparacionDTO> SelectorReparaciones { get; set; }
     public PersonalAsignadoDTO? Resultado { get; private set; } = null;
 
@@ -47,9 +44,9 @@ public partial class FormularioPersonal : Window
                 }
             }
 
-            Dni = p.Dni;
-            Nombre = p.Nombre;
-            Email = p.Email;
+            this.GetControl<TextBox>("CampoDni").Text = p.Dni;
+            this.GetControl<TextBox>("CampoNombre").Text = p.Nombre;     
+            this.GetControl<TextBox>("CampoEmail").Text = p.Email;
         }
 
         this.GetControl<Button>("BtCancelar").Click += (_,_) => this.OnCancelar();
@@ -70,19 +67,19 @@ public partial class FormularioPersonal : Window
 
 
         DataValidationErrors.ClearErrors(campoDni);
-        if(ValidadorComun.ComprobarDni(campoDni.Text) != CodigoValidacion.Ok){
-            DataValidationErrors.SetError(campoDni, new Exception($"{campoDni.Text}"));
+        if(ValidadorComun.ComprobarDni(campoDni.Text!) != CodigoValidacion.Ok){
+            DataValidationErrors.SetError(campoDni, new Exception("Revise el Dni"));
             estaCorrecto = false;
         }
 
         DataValidationErrors.ClearErrors(campoNombre);
-        if(ValidadorComun.ComprobarNombre(campoNombre.Text) != CodigoValidacion.Ok){
+        if(ValidadorComun.ComprobarNombre(campoNombre.Text!) != CodigoValidacion.Ok){
             DataValidationErrors.SetError(campoNombre, new Exception("Revise el Nombre"));
             estaCorrecto = false;
         }
 
         DataValidationErrors.ClearErrors(campoEmail);
-        if(ValidadorComun.ComprobarEmail(campoEmail.Text) != CodigoValidacion.Ok){
+        if(ValidadorComun.ComprobarEmail(campoEmail.Text!) != CodigoValidacion.Ok){
             DataValidationErrors.SetError(campoEmail, new Exception("Revise el Email"));
             estaCorrecto=false;
         }
@@ -90,9 +87,9 @@ public partial class FormularioPersonal : Window
         if(estaCorrecto){
             Resultado = new PersonalAsignadoDTO
             {
-                Dni = campoDni.Text.Trim().ToUpper(),
-                Nombre = campoNombre.Text,
-                Email = campoEmail.Text,
+                Dni = campoDni.Text!.Trim().ToUpper(),
+                Nombre = campoNombre.Text!,
+                Email = campoEmail.Text!,
                 ReparacionesAsignadas = [.. SelectorReparaciones
                                             .Where( r => r.Seleccionada )
                                             .Select( r => r.Asunto )]
