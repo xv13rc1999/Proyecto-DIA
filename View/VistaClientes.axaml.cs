@@ -12,7 +12,7 @@ public partial class VistaClientes : UserControl
     public Button BtEliminar { get; }
     public Button BtGuardar { get; }
     
-    public MainWindow()
+    public VistaClientes()
     {
         InitializeComponent();
         
