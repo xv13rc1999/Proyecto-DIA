@@ -28,7 +28,7 @@ public class ContenedorDatos{
         this._listaClientes = clientes;
     }
 
-    public CodigoValidacion AñadirPersonal(string dni, string nombre, string email, List<string>? reparacionesAsignadas)
+    public CodigoValidacion AñadirPersonal(string dni, string nombre, string email, List<string>? reparacionesAsignadas = null)
     {
         CodigoValidacion temp = ValidadorComun.ComprobarDni(dni);
         if(!temp.Equals(CodigoValidacion.Ok)){

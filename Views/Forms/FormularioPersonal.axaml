@@ -1,29 +1,29 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:New.ViewModels"
-        xmlns:m="using:New.Models"
-        xmlns:u="using:New.Utilities"
-        x:Class="Taller.Views.FormularioPersonal"
-        Title="Formulario" Width="300" Height="400"
-        WindowStartupLocation="CenterOwner">
+        xmlns:u="clr-namespace:Taller.Utils.DTOs"
+        xmlns:mc="clr-namespace:Taller.Views.Forms"
+        x:Class="Taller.Views.Forms.FormularioPersonal"
+        x:DataType="mc:FormularioPersonal"
+        Title="Formulario personal" Width="300" Height="400"
+        WindowStartupLocation="CenterOwner"
+        FontFamily="Segoe UI, Arial, sans-serif">
 
     <StackPanel>
         <StackPanel Spacing="10" Margin="20">
             <TextBlock Text="Dni:" />
-            <TextBox Text="{Binding Dni}" />
+            <TextBox Name="CampoDni" Text="{Binding Dni}" />
 
             <TextBlock Text="Nombre:" />
-            <TextBox Text="{Binding Nombre}" />
+            <TextBox Name="CampoNombre" Text="{Binding Nombre}" />
 
             <TextBlock Text="Email:" />
-            <TextBox Text="{Binding Email}" />
+            <TextBox Name="CampoEmail" Text="{Binding Email}" />
 
-            <!--Falta añadir el selector de asignaciones-->
             <Border>
-                <ListBox ItemsSource="{Binding ReparacionesAsignadas}">
+                <ListBox ItemsSource="{Binding SelectorReparaciones}">
                     <ListBox.ItemTemplate>
-                        <DataTemplate DataType="u:SeleccionReparacion">
-                            <CheckBox Content="{Binding IdReparacion}" 
+                        <DataTemplate DataType="u:SeleccionReparacionDTO">
+                            <CheckBox Content="{Binding Asunto}" 
                                     IsChecked="{Binding Seleccionada}" 
                                     Margin="0,2"/>
                         </DataTemplate>
@@ -33,8 +33,8 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Spacing="10">
-            <Button Content="Cancelar" Command="{Binding CancelarCommand}" CommandParameter="{Binding $parent[Window]}"/>
-            <Button Content="Guardar" Command="{Binding GuardarCambiosCommand}" CommandParameter="{Binding $parent[Window]}"/>
+            <Button Name="BtCancelar" Content="Cancelar" Background="#663668" />
+            <Button Name="BtGuardar" Content="Guardar" Background="#663668" />
         </StackPanel>
     </StackPanel>
 </Window>

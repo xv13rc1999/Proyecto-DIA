@@ -1,21 +1,27 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Avalonia.Markup.Xaml;
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using Taller.Core;
 using Taller.Utils.DTOs;
+using Taller.Utils;
 
 namespace Taller.Views.Forms;
 
 public partial class FormularioPersonal : Window
 {
-    public string Dni = string.Empty;
-    public string Nombre = string.Empty;
-    public string Email = string.Empty;
-    public List<SeleccionReparacionDTO> SelectorReparaciones;
+    public string Dni { get; set; } = string.Empty;
+    public string Nombre { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public List<SeleccionReparacionDTO> SelectorReparaciones { get; set; }
     public PersonalAsignadoDTO? Resultado { get; private set; } = null;
 
     public FormularioPersonal(ContenedorDatos datosTaller, Personal? p = null)
     {
+        InitializeComponent();
+        
         SelectorReparaciones = [.. datosTaller.ListaReparaciones.Where( r => r.FechaFin == null)
                 .Select( r => new SeleccionReparacionDTO{
                         Asunto = r.Asunto,
@@ -45,24 +51,58 @@ public partial class FormularioPersonal : Window
             Nombre = p.Nombre;
             Email = p.Email;
         }
+
+        this.GetControl<Button>("BtCancelar").Click += (_,_) => this.OnCancelar();
+        this.GetControl<Button>("BtGuardar").Click += (_,_) => this.OnGuardar();
     }
 
-    private void GuardarCambios(Window? window)
+    private void InitializeComponent()
     {
-        Resultado = new PersonalAsignadoDTO
-        {
-            Dni = this.Dni.Trim().ToUpper(),
-            Nombre = this.Nombre,
-            Email = this.Email,
-            ReparacionesAsignadas = [.. SelectorReparaciones
-                                        .Where( r => r.Seleccionada )
-                                        .Select( r => r.Asunto )]
-        };
-        window?.Close(true);
+        AvaloniaXamlLoader.Load(this);
     }
 
-    private void Cancelar(Window? window)
+    private void OnGuardar()
     {
-        window?.Close(false);
+        bool estaCorrecto = true;
+        var campoDni = this.GetControl<TextBox>("CampoDni");        
+        var campoNombre = this.GetControl<TextBox>("CampoNombre");        
+        var campoEmail = this.GetControl<TextBox>("CampoEmail");        
+
+
+        DataValidationErrors.ClearErrors(campoDni);
+        if(ValidadorComun.ComprobarDni(campoDni.Text) != CodigoValidacion.Ok){
+            DataValidationErrors.SetError(campoDni, new Exception($"{campoDni.Text}"));
+            estaCorrecto = false;
+        }
+
+        DataValidationErrors.ClearErrors(campoNombre);
+        if(ValidadorComun.ComprobarNombre(campoNombre.Text) != CodigoValidacion.Ok){
+            DataValidationErrors.SetError(campoNombre, new Exception("Revise el Nombre"));
+            estaCorrecto = false;
+        }
+
+        DataValidationErrors.ClearErrors(campoEmail);
+        if(ValidadorComun.ComprobarEmail(campoEmail.Text) != CodigoValidacion.Ok){
+            DataValidationErrors.SetError(campoEmail, new Exception("Revise el Email"));
+            estaCorrecto=false;
+        }
+        
+        if(estaCorrecto){
+            Resultado = new PersonalAsignadoDTO
+            {
+                Dni = campoDni.Text.Trim().ToUpper(),
+                Nombre = campoNombre.Text,
+                Email = campoEmail.Text,
+                ReparacionesAsignadas = [.. SelectorReparaciones
+                                            .Where( r => r.Seleccionada )
+                                            .Select( r => r.Asunto )]
+            };
+            this.Close(true);
+        }
+    }
+
+    private void OnCancelar()
+    {
+        this.Close(false);
     }
 }
